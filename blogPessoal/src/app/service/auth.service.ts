@@ -12,10 +12,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   logar(userLogin: UserLogin) {
-    return this.http.post('htttp://localhost:8080/usuarios/logar', userLogin )
+    return this.http.post('http://localhost:8080/usuarios/logar', userLogin )
   }
 
   cadastrar(user: User) : Observable<User> {
-    return this.http.post<User>('htttp://localhost:8080/usuarios/cadastrar', user )
+    return this.http.post<User>('http://localhost:8080/usuarios/cadastrar', user )
   }
 }
