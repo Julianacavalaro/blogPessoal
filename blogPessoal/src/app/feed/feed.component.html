@@ -29,7 +29,7 @@
             <div class="row d-flex align-items-end">
                 <div class="col-md-6">
                     <div class="form-group-m-0">
-                        <label class="text-monospace" for="tema">Escolha tema ou <a href="">
+                        <label class="text-monospace" for="tema">Escolha tema ou <a routerLink='/cadastro-tema'>
                                 Cadastre um novo</a>
                         </label>
                         <select name="tema" id="tema" class="form-control">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="col-md-6 d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-info w-25">Publicar</button>
+                    <button type="button" class="btn btn-outline-info w-25" (click)='publicar()'>Publicar</button>
                 </div>
             </div>
 
@@ -72,9 +72,40 @@
                             <button class="btn btn-outline-warning w-100" type="button">Pesquisar</button>
 
                         </div>
-
                     </div>
 
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="card mt-5" *ngFor='let item of listaPostagens'>
+                                <div class="card-header">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-md-8">
+                                            <h5 class="card-title"> </h5>
+                                            <small>Tema: {{item.tema.descricao}} </small>
+                                        </div>
+                                        <div class="col-md-4 d-flex justify-content-end">
+
+                                            <button class="mr-3 btn btn-outline-info">
+                                                Editar
+                                            </button>
+
+                                            <button class="btn btn-outline-danger ml-3">
+                                                Apagar
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <p class="card-text" aria-describedby="texto"> {{item.texto}} </p>
+                                    <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace">
+                                        Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:'HH:mm'}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="postagens-temas" role="tabpanel1" aria-labelledby="nav-presenca-tab">
@@ -100,4 +131,3 @@
     </div>
 
 </div>
-
