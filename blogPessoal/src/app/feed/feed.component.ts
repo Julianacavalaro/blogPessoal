@@ -30,6 +30,11 @@ export class FeedComponent implements OnInit {
     this.findAllTemas()
   }
 
+  publicar() {
+   
+  }
+
+
   findAllPostagens() {
       this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
         this.listaPostagens = resp
