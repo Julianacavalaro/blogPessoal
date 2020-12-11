@@ -27,6 +27,8 @@ export class PutPostagemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
+
     this.idPost = this.route.snapshot.params["id"]
     this.findByIdPostagem(this.idPost)
 

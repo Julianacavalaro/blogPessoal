@@ -19,7 +19,7 @@ export class PostagemService {
     return this.http.get<Postagem[]>('http://localhost:8080/postagens', this.token)
   }
 
-  //duvida se o getByIdPostagem(id: number) está correto
+  
   getByIdPostagem(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(`http://localhost:8080/postagens/${id}`, this.token )
   }
@@ -30,6 +30,10 @@ export class PostagemService {
 
   putPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.put<Postagem>('http://localhost:8080/postagens', postagem, this.token)
+  }
+
+  deletePostagem(id: number): Observable<Postagem>  {
+    return this.http.delete<Postagem>(`http://localhost:8080/postagens/${id}`, this.token )
   }
   
 }
